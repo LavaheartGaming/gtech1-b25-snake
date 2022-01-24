@@ -1,4 +1,5 @@
 #include <iostream>
+#include "mainSDLWindow.hpp"
 using namespace std;
 bool gameOver;
 const int width =20;
