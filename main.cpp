@@ -1,5 +1,7 @@
 #include <iostream>
 #include "mainSDLWindow.hpp"
+#include <SDL2>
+
 using namespace std;
 bool gameOver;
 const int width =20;
@@ -27,7 +29,7 @@ void logic()
 }
 void draw()
 {
-
+ 
 }
 main(void)
 {
