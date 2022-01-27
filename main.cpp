@@ -1,5 +1,5 @@
 #include <iostream>
-#include "mainSDLWindow.cpp"
+#include "window.cpp"
 #include <SDL2/SDL.h>
 
 int main()
@@ -36,4 +36,4 @@ int main()
   SDL_Quit();
 }
 //cd ~/gtech1-b25-snake/
-//g++ [fichier] -lSDL2
+//g++ main.cpp -lSDL2
