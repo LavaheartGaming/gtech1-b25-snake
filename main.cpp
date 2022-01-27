@@ -1,44 +1,39 @@
 #include <iostream>
-#include "mainSDLWindow.hpp"
-#include <SDL2>
+#include "mainSDLWindow.cpp"
+#include <SDL2/SDL.h>
 
-using namespace std;
-bool gameOver;
-const int width =20;
-const int height =20;
-int x, y, fruitx, fruity, score, hiscore; 
-enum direction{ STOP = 0, LEFT, RIGHT, UP, DOWN};
-direction dir;
-void init()
+int main()
 {
-    gameOver = false;
-    dir = STOP;
-    x = width / 2;
-    y = height / 2;
-    fruitx = rand() % width;
-    fruity = rand() % height;
-    score = 0;
-}
-void input()
-{
-    
-}
-void logic()
-{
+    SDL_init(SDL_INIT_VIDEO);
 
+    SDL_Window* window = SDL_CreateWindow(
+      "Snek",
+      SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+      1920,
+      1080,
+      SDL_WINDOW_SHOWN );
+
+
+  bool quit = false;
+  while (!quit)
+  {
+    SDL_EVENT e;
+    while ( SDL_PollEvent( &e ) )
+    {
+      switch (e.type)
+      {
+      case SDL_QUIT:
+        quit = true;
+        break;
+      
+      default:
+        break;
+      }
+    }
+  }
+
+  SDL_DestroyWindow( window );
+  SDL_Quit();
 }
-void draw()
-{
- 
-}
-main(void)
-{
- init();
- while(!gameOver)
- {
-   draw();
-   input();
-   logic();  
- }
-    return 0;
-}
+//cd ~/gtech1-b25-snake/
+//g++ [fichier] -lSDL2

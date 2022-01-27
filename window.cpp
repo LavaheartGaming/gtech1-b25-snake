@@ -1,0 +1,8 @@
+window::window()
+{
+
+}
+window::~window()
+{
+    
+}

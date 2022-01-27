@@ -1,8 +1,8 @@
 #include "mainSDLWindow.hpp"
-#include <SDL2>
+#include <SDL2/SDL.h>
 
-SDL_Window* window;
-
+mainSDLWindow::mainSDLWindow()
+{
 if(SDL_Init(SDL_INIT_VIDEO) < 0){
     std::cout << "SDL could not be initialized: " << SDL_GetError();
 }else{
@@ -13,7 +13,7 @@ window = SDL_CreateWindow("MainSDLWindow",
         0,
         0,
         1920,
-        1020,
+        1080,
         SDL_WINDOW_SHOWN);
 
 SDL_Delay(3000)
@@ -22,3 +22,4 @@ SDL_DestroyWindow(window);
 
 SDL_Quit();
 return 0;
+}
