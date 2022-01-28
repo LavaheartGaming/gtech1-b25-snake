@@ -1,0 +1,76 @@
+@startuml
+skinparam classAttributeIconSize 12
+
+class MainSDLWindow.hpp {
+private:
+class MainSDLWindow :
++mainSDLWindow= ;
++~mainSDLWindow;
+}
+
+note left of MainSDLWindow
+ c'est la fonction de création de la  fênetre 
+donc  ~mainSDLWindow est son contraire 
+end note
+
+
+class MainSDLWindow.cpp {
+
++classmainSDLWindow :: method( if(SDL_Init(SDL_INIT_VIDEO) < 0)SDL could not be initialized )
+
++classmainSDLWindow :: method( else ( SDL video is ready to go )
+
++class window= SDL_CreateWindow :: method("MainSDLWindows,0,0,Widht,Height,SDL_WINDOW_SHOWN);
+
+__ private __
+-SDL_Delay(3000);
+
+-SDL_DestroyWindow(window);
+
+-SDL_Quit();
+
+
+
+}
+
+class main.cpp{
+
++classSDL_init:: methode(SDL_INIT_VIDEO);
+
++class SDL_Window* window = SDL_CreateWindow("Sneck" ,SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+
+1920,1080,DL_WINDOW_SHOWN );
+
+
+--private--
+
+-bool quit = false;
+
+-while (!quit)
+
+-SDL_EVENT e ;
+
+-while ::methode(SDL_PollEvent(&e))
+switch (e.type){
+case SDL_QUIT:
+quit = true;
+default: break;
+  )
+ )
+)
+
+ -SDL_DestroyWindow( window );
+ -SDL_Quit();
+
+
+
+}
+
+note right of main.cpp
+le programme est prise en compte par 
+MainSDLWindow.hpp maisest aussi un autre 
+moyen de crée ou de détruire une fenêtre
+dans le progamme.
+end note
+
+@enduml
