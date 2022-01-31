@@ -3,7 +3,6 @@
 Window::Window(){
     this->fenetre = NULL;
 }
-
 int Window::Init()
 {
     if(SDL_Init(SDL_INIT_VIDEO) < 0)  // initialisation de la SDL
@@ -39,8 +38,7 @@ SDL_Renderer* Window::GetRenderer(){
 
 Window::~Window()
 {
+    SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(fenetre);
-    // ???
     SDL_Quit();  //on quitte la SDL
 }
-// Jean Serien

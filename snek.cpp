@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include "window.hpp"
+#include "window.cpp"
 
 using namespace std;
 bool gameOver;
@@ -11,8 +11,6 @@ enum direction{ STOP = 0, LEFT, RIGHT, UP, DOWN};
 direction dir;
 
 Window *init() {
-    Window *fenetre = new Window();
-    fenetre->Init();
     gameOver = false;
     dir = STOP;
     x = width / 2;
@@ -20,13 +18,24 @@ Window *init() {
     fruitx = rand() % width;
     fruity = rand() % height;
     score = 0;
-
+    Window *fenetre = new Window();
+    fenetre->Init();
 }
 
 void input()
 {
-    
-}
+    SDL_Event e;
+    while ( SDL_PollEvent( &e ) )
+    {
+      switch (e.type)
+      {
+      case SDL_QUIT:
+        gameOver = true;
+        break;
+      
+      }
+    }
+}  
 void logic()
 {
 
@@ -45,6 +54,7 @@ main(void)
    logic();
    SDL_Delay(20);
  }
-  if (win != NULL) delete win;
+  delete win;
   return 0;
 }
+//g++ snek.cpp -lSDL2
