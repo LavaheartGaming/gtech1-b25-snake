@@ -29,6 +29,23 @@ int Window::Init()
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
     SDL_RenderPresent(renderer);
+//programme carré
+    int  SDL_SetRenderTarget(SDL_Renderer* renderer, SDL_Texture*  texture){
+SDL_Texture *texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888,SDL_TEXTUREACCESS_TARGET,200,100);
+SDL_SetRenderDrawColor(renderer,255,0,0,255);
+SDL_SetRenderTarget(renderer, texture); //on modifie la texture
+SDL_RenderDrawLine(renderer,0,0,200,100);
+SDL_SetRenderTarget(renderer, NULL);// Dorénavent, on modifie à nouveau le renderer
+SDL_Texture *texture_modifiee = SDL_GetRenderTarget(renderer);
+SDL_DestroyTexture(texture);
+
+SDL_Rect position;
+position.x = 100;
+position.y = 200;
+SDL_QueryTexture(texture, NULL, NULL, &position.w, &position.h);
+SDL_RenderCopy(renderer, texture, NULL, &position);
+SDL_RenderPresent(renderer);
+    }
     return EXIT_SUCCESS;
 }
 
