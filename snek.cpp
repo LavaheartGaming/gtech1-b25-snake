@@ -42,8 +42,7 @@ void logic()
 {
 
 }
-void draw()
-{
+void draw(){
 
 }
 main(void)
