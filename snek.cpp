@@ -1,6 +1,8 @@
 
 #include <iostream>
 #include "window.cpp"
+#include "body.cpp"
+#include "logic.cpp"
 
 using namespace std;
 bool gameOver;
