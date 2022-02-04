@@ -1,8 +1,0 @@
-lancer xlaunch
-sous debian : export DISPLAY=0
-verifie la version de WSL
-- sous cmd.exe : --list --verbose
-wsl  --set-version Debian 1
-
-
-
