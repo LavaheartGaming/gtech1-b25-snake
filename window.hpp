@@ -1,6 +1,3 @@
-#ifndef WINDOW_HPP
-#define WINDOW_HPP
-
 #include <SDL2/SDL.h>
 
 class Window{
@@ -14,6 +11,3 @@ private:
     SDL_Window* fenetre;
     SDL_Renderer* renderer;
 };
-
-
-#endif

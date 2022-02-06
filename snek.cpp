@@ -1,5 +1,6 @@
-#include <iostream>
 #include "window.cpp"
+#include "player.cpp"
+#include <iostream>
 
 using namespace std;
 bool gameOver;
@@ -19,6 +20,7 @@ Window *init() {
     score = 0;
     Window *fenetre = new Window();
     fenetre->Init();
+    SDL_Rect head {500,500,10,10};
 }
 
 void input()
@@ -34,13 +36,48 @@ void input()
       
       }
     }
-}  
+    while(SDL_PollEvent(&e)){
+      if(e.type == SDL_KEYDOWN){
+        if (e.key.keysym.sym == SDLK_DOWN)
+        {
+          dir = DOWN;
+        }
+         if (e.key.keysym.sym == SDLK_UP)
+        {
+          dir = UP;
+        }
+         if (e.key.keysym.sym == SDLK_RIGHT)
+        {
+          dir = RIGHT;
+        }
+         if (e.key.keysym.sym == SDLK_LEFT)
+        {
+          dir = LEFT;
+        }
+    }      
+  }
+}
+
+switch(dir)
+{
+  case DOWN:
+    y += 10; break;
+  case UP:
+    y -= 10; break;
+  case LEFT:
+    x += 10; break;
+  case RIGHT:
+    x -= 10; break;
+}
 void logic()
 {
 
 }
 void draw(){
-
+SDL_SetRenderDrawColor (renderer,255,255,255,255);
+SDL_RenderFillRect(renderer,&head);
+SDL_RenderPresent(renderer);
+SDL_Delay(20);
 }
 main(void)
 {
@@ -56,3 +93,4 @@ main(void)
   return 0;
 }
 //g++ snek.cpp -lSDL2
+//cd ~/gtech1-b25-snake/

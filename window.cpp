@@ -13,7 +13,7 @@ int Window::Init()
 
     this->fenetre = SDL_CreateWindow("Snek",
         SDL_WINDOWPOS_CENTERED,
-        SDL_WINDOWPOS_CENTERED, 600, 600, SDL_WINDOW_RESIZABLE);  // Création de la fenêtre
+        SDL_WINDOWPOS_CENTERED, 1000, 1000, SDL_WINDOW_RESIZABLE);  // Création de la fenêtre
     if (this->fenetre == NULL)  //gestion des erreurs
     {
         printf("Erreur lors de la creation d'une fenetre : %s", SDL_GetError());
