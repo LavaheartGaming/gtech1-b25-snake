@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 
 class Snake {
 public:
@@ -15,4 +15,4 @@ public:
     int x, y;
     Segment *next;
 private:
-};
+};*/

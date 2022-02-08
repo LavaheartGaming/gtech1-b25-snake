@@ -3,6 +3,10 @@
 #include <iostream>
 
 using namespace std;
+const int frameRate  = 5;
+const int frameDelay = 1000 / frameRate;
+Uint32 frameTime;
+int frameElapsedTime;
 bool gameOver;
 const int width = 20;
 const int height = 20;
@@ -22,6 +26,10 @@ Window *wdw = NULL;
 Window *init()
 {
   gameOver = false;
+  frameTime = SDL_GetTicks();
+  frameElapsedTime = SDL_GetTicks() - frameTime;
+  if (frameDelay > frameElapsedTime)
+    SDL_Delay(frameDelay - frameElapsedTime);
   dir = STOP;
   x = width / 2;
   y = height / 2;

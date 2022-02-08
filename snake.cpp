@@ -1,4 +1,4 @@
-#include "snake.hpp"
+/*#include "snake.hpp"
 
 Snake::Snake(){
     this->head = new Segment();
@@ -19,5 +19,5 @@ Segment::~Segment(){
 void func(void){
     Snake *s = new Snake();
     delete s;
-}
+}*/
 
