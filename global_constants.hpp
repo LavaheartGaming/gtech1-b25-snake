@@ -1,8 +1,0 @@
-#ifndef GLOBAL_CONSTANTS_HPP_INCLUDED
-#define GLOBAL_CONSTANTS_HPP_INCLUDED
-
-const int G_SIZE = 768;
-const int C_SIZE = 32;
-const int GRID   = G_SIZE / C_SIZE;
-
-#endif // GLOBAL_CONSTANTS_HPP_INCLUDED
