@@ -1,5 +1,4 @@
 #include <SDL2/SDL.h>
-
 class Window{
 public:
     SDL_Rect head;
@@ -19,7 +18,7 @@ public:
     void DrawSnake();
     int Init();
     SDL_Renderer* GetRenderer() {return renderer; }
-    
+
 private:
     SDL_Window* fenetre;
     SDL_Renderer* renderer;

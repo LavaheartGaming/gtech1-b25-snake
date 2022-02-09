@@ -1,5 +1,4 @@
 #include "window.hpp"
-
 int Window::Init()
 {
     if(SDL_Init(SDL_INIT_VIDEO) < 0)  // initialisation de la SDL
@@ -27,11 +26,4 @@ int Window::Init()
     SDL_RenderClear(renderer);
     SDL_RenderPresent(renderer);
     return EXIT_SUCCESS;
-}
-
-void Window::DrawSnake(){
-    SDL_SetRenderDrawColor (renderer,255,255,255,255);
-    SDL_RenderFillRect(renderer,&head);
-    SDL_RenderPresent(renderer);
-    SDL_Delay(20);
 }
