@@ -3,6 +3,8 @@
 class Window{
 public:
     SDL_Rect head;
+    SDL_Rect fruit;
+    SDL_Rect segment;
  
     Window()
     {
@@ -17,6 +19,8 @@ public:
     }
  
     void DrawSnake();
+    void DrawSegment();
+    void DrawFruit();
     int Init();
     SDL_Renderer* GetRenderer() {return renderer; }
    

@@ -10,7 +10,7 @@ int Window::Init()
  
     this->fenetre = SDL_CreateWindow("Snek",
         SDL_WINDOWPOS_CENTERED,
-        SDL_WINDOWPOS_CENTERED, 1000, 1000, SDL_WINDOW_RESIZABLE);  // Création de la fenêtre
+        SDL_WINDOWPOS_CENTERED, 1000, 1000, SDL_WINDOW_MINIMIZED);  // Création de la fenêtre
     if (this->fenetre == NULL)  //gestion des erreurs
     {
         printf("Erreur lors de la creation d'une fenetre : %s", SDL_GetError());
@@ -30,8 +30,20 @@ int Window::Init()
 }
  
 void Window::DrawSnake(){
-    SDL_SetRenderDrawColor (renderer,255,255,255,255);
+    SDL_SetRenderDrawColor (renderer,0,255,0,255);
     SDL_RenderFillRect(renderer,&head);
     SDL_RenderPresent(renderer);
     SDL_Delay(20);
+}
+void Window::DrawFruit(){
+     SDL_SetRenderDrawColor (renderer,255,0,0,255);
+    SDL_RenderFillRect(renderer,&fruit);
+     SDL_RenderPresent(renderer);
+     SDL_Delay(20);
+}
+void Window::DrawSegment(){
+    SDL_SetRenderDrawColor (renderer,255,255,255,255);
+    SDL_RenderFillRect(renderer,&segment);
+     SDL_RenderPresent(renderer);
+     SDL_Delay(20);
 }

@@ -7,6 +7,7 @@ public:
     void Head();
     void Segment();
     void CheckForFood();
+    void setDirection();
  
 private:
  

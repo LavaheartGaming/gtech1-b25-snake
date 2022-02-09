@@ -1,6 +1,7 @@
 #include "window.hpp"
 #include "player.hpp"
 #include <iostream>
+#include <ctime>
  
 using namespace std;
 const int frameRate  = 5;
@@ -8,9 +9,10 @@ const int frameDelay = 1000 / frameRate;
 Uint32 frameTime;
 int frameElapsedTime;
 bool gameOver;
+bool eatFruit;
 const int width = 20;
 const int height = 20;
-int x, y, fruitx, fruity, score, hiscore;
+int x, y, fruitx, fruity, score, hiscore, randy, randx;
 enum direction
 {
   STOP = 0,
@@ -25,22 +27,31 @@ Window *wdw = NULL;
  
 Window *init()
 {
+     srand((unsigned) time(0));
+  randy = (rand() % 19) + 1;
+  fruity = randy * 20;
+  cout << fruity << endl;
+  randx = (rand() % 19) + 1;
+  fruitx = randx * 20;
+  cout << fruitx << endl;
+  eatFruit = false;
   gameOver = false;
-  frameTime = SDL_GetTicks();
-  frameElapsedTime = SDL_GetTicks() - frameTime;
-  if (frameDelay > frameElapsedTime)
-    SDL_Delay(frameDelay - frameElapsedTime);
   dir = STOP;
-  x = width / 2;
-  y = height / 2;
-  fruitx = rand() % width;
-  fruity = rand() % height;
+  x = 500;
+  y = 500;
   score = 0;
   Window *fenetre = new Window();
   fenetre->Init();
   return fenetre;
+  void tpfruit();
 }
  
+ void framerate(){
+   frameTime = SDL_GetTicks();
+  frameElapsedTime = SDL_GetTicks() - frameTime;
+  if (frameDelay > frameElapsedTime)
+    SDL_Delay(frameDelay - frameElapsedTime);
+ }
 void input()
 {
   SDL_Event e;
@@ -91,23 +102,33 @@ void input()
     break;
   }
 }
-void logic()
-{
-}
 void draw()
 {
   wdw->DrawSnake();
+  wdw->DrawFruit();
+  wdw->DrawSegment();
+ 
+}
+void tpfruit(){
+
+  eatFruit = false;
 }
  
 main(void)
 {
   wdw = init();
-  wdw->head = {500, 500, 50, 48};
+  wdw->head = {x, y, 50, 48};
+  wdw->fruit = {fruitx, fruity, 50, 48};
+  wdw->segment = {x-50, y, 50, 48};
   while (!gameOver)
   {
+    if (eatFruit = true)
+    {
+      tpfruit();
+    }
     draw();
     input();
-    logic();
+    framerate();
     SDL_Delay(20);
   }
   if (wdw != NULL) delete wdw;
